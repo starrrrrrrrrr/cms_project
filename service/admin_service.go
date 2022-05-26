@@ -30,7 +30,7 @@ type adminService struct {
 
 func (ac *adminService) GetByAdminNameAndPassword(username, password string) (model.Admin, bool) {
 	admin := model.Admin{}
-	ac.Engine.Where("user_name=?", username).And("pwd=?", password).Get(&admin)
+	ac.Engine.Where("admin_name=?", username).And("pwd=?", password).Get(&admin)
 	return admin, admin.AdminId != 0
 }
 

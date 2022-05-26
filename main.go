@@ -37,7 +37,7 @@ func main() {
 	app.Run(
 		iris.Addr(addr), //监听端口9000
 		iris.WithoutServerError(iris.ErrServerClosed), //无服务错误
-		iris.WithOptimizations,                        //对json数据序列化更快的配置
+		//iris.WithOptimizations,                        //对json数据序列化更快的配置
 	)
 
 	//mvc架构
@@ -61,7 +61,7 @@ func NewApp() *iris.Application {
 
 	//注册静态资源
 	app.HandleDir("/static", "./static")
-	app.HandleDir("/manmger/static", "./static")
+	app.HandleDir("/manage/static", "./static")
 	app.HandleDir("/img", "./uploads")
 
 	app.RegisterView(iris.HTML("./static", ".html"))
